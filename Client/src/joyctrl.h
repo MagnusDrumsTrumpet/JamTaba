@@ -3,15 +3,18 @@
 #include <QMap>
 #include "SDL.h"
 
-class JoyCtrl
+class Joystick
 {
 public:
-    JoyCtrl();
-    ~JoyCtrl();
-    void scan();
+    Joystick(){};
+    Joystick(int index);
+    ~Joystick();
+    bool enabled;
+private:
+    bool init(int index);
     int index;
 
-       QString name;
+       const char* name;
        int numAxes;
        int numButtons;
        int numHats;

@@ -21,6 +21,7 @@ Q_LOGGING_CATEGORY(jtStandalonePluginFinder,"jt.Standalone.PluginFinder")
 Q_LOGGING_CATEGORY(jtVstPlugin,             "jt.VstPlugin")
 Q_LOGGING_CATEGORY(jtAudio,                 "jt.Audio")
 Q_LOGGING_CATEGORY(jtMidi,                  "jt.Midi")
+Q_LOGGING_CATEGORY(jtJoy,                  "jt.Joystick")
 
 
 static bool logFileCreated = false;

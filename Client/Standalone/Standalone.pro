@@ -134,3 +134,9 @@ INCLUDEPATH += $$VST_SDK_PATH/pluginterfaces/vst2.x/
 #QMAKE_LFLAGS_RELEASE = $$QMAKE_LFLAGS_RELEASE_WITH_DEBUGINFO
 
 
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../libs/shared/x86/release/ -lSDL2
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../libs/shared/x86/debug/ -lSDL2
+
+INCLUDEPATH += $$PWD/../libs/shared/x86/debug
+DEPENDPATH += $$PWD/../libs/shared/x86/debug

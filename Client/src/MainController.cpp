@@ -30,6 +30,7 @@
 #include "../log/logging.h"
 #include "joyctrl.h"
 
+JoyCtrl *Joystick;
 QString Controller::MainController::LOG_CONFIG_FILE = "logging.ini";
 
 using namespace Persistence;
@@ -739,6 +740,8 @@ bool MainController::trackIsSoloed(int trackID) const{
 
 
 MainController::~MainController(){
+     delete Joystick;
+     qCDebug(jtCore()) << "Joystick destroyed!";
     qCDebug(jtCore()) << "MainController destrutor!";
     if(mainWindow){
         mainWindow->detachMainController();
@@ -841,6 +844,10 @@ void MainController::tryConnectInNinjamServer(Login::RoomInfo ninjamRoom, QStrin
 
 
 void MainController::start(){
+
+    Joystick=new JoyCtrl();
+    if(Joystick)
+    Joystick->scan();
 
     if(!started){
         qCInfo(jtCore) << "Creating plugin finder...";

@@ -28,6 +28,7 @@
 #include <QDir>
 
 #include "../log/logging.h"
+#include "joyctrl.h"
 
 QString Controller::MainController::LOG_CONFIG_FILE = "logging.ini";
 

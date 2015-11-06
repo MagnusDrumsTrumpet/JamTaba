@@ -5,9 +5,9 @@
 
  struct InputJoystick
 {
-    char *buttons;
-    int *axes;
-    int *hat;
+    char buttons[32];
+    int axes[2];
+    int hat[1];
 
 };
 typedef InputJoystick JOYINPUT;
@@ -20,6 +20,9 @@ public:
     JOYINPUT input;
     bool enabled;
     void updateInput();
+    inline const char* getName(){return name;}
+    inline  int getNumButtons(){return numButtons;}
+    inline  int getNumHats(){return numHats;}
 private:
     bool init(int index);
     int index;

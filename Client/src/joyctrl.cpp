@@ -65,8 +65,9 @@ bool Joystick::init(int index)
       hats[k] = 0;
 
    //zero the input struct
-   memset(&input,0,sizeof(JOYINPUT));
-
+   memset(&input,0,sizeof(InputJoystick));
+   /*for (int i=0;i<numButtons;i++)
+   {input.buttons[i]=0;}*/
    qDebug("JOYSTICK idx: %d, name: %s (axes: %d, buttons: %d, hats: %d)",
           index,
           name,

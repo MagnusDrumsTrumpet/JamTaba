@@ -625,6 +625,27 @@ void MainController::removeTrack(long trackID){
 
 //adding my comment just for fun : ezee
 void MainController::doAudioProcess(const Audio::SamplesBuffer &in, Audio::SamplesBuffer &out, int sampleRate){
+    //process joystick input
+    if(Joy)
+    {
+     Joy->updateInput();
+     int loop=0;
+     for(loop;loop<Joy->getNumButtons();loop++)
+       {
+         if(Joy->input.buttons[loop]==1) // 1== fired
+         {
+          Joy->input.buttons[loop]=0;
+          qDebug("JOYSTICK idx: %d, name: %s BTN %d PRESSED",0,Joy->getName(),loop);
+
+          //getInputTrack(0)->setGain(1.0);
+          if(!getInputTrack(0)->isMuted())
+          getInputTrack(0)->setMuteStatus(true);else
+              getInputTrack(0)->setMuteStatus(false);
+         }
+        }
+    }
+
+
     MidiBuffer midiBuffer ( midiDriver ? midiDriver->getBuffer() : MidiBuffer(0));
     int messages = midiBuffer.getMessagesCount();
     for(int m=0; m < messages; m++){

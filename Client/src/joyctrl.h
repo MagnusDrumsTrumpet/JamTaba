@@ -3,13 +3,23 @@
 #include <QMap>
 #include "SDL.h"
 
+ struct InputJoystick
+{
+    char *buttons;
+    int *axes;
+    int *hat;
+
+};
+typedef InputJoystick JOYINPUT;
 class Joystick
 {
 public:
     Joystick(){};
     Joystick(int index);
     ~Joystick();
+    JOYINPUT input;
     bool enabled;
+    void updateInput();
 private:
     bool init(int index);
     int index;

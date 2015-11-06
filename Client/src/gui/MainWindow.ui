@@ -118,8 +118,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>99</width>
-            <height>654</height>
+            <width>98</width>
+            <height>655</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="localTracksLayout">
@@ -212,6 +212,9 @@
            </property>
            <item>
             <widget class="QScrollArea" name="allRoomsScroll">
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
              <property name="styleSheet">
               <string notr="true"/>
              </property>
@@ -229,8 +232,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>711</width>
-                <height>674</height>
+                <width>712</width>
+                <height>675</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -321,7 +324,7 @@
      <x>0</x>
      <y>0</y>
      <width>1160</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPreferences">

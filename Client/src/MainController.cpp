@@ -629,6 +629,7 @@ void MainController::doAudioProcess(const Audio::SamplesBuffer &in, Audio::Sampl
     if(Joy)
     {
      Joy->updateInput();
+     //check the buttons
      int loop=0;
      for(loop;loop<Joy->getNumButtons();loop++)
        {
@@ -649,7 +650,16 @@ void MainController::doAudioProcess(const Audio::SamplesBuffer &in, Audio::Sampl
 
          }
         }
-    }
+     //check the axes
+      loop=0;
+     for(loop;loop<Joy->getNumAxis();loop++)
+     {
+      qDebug("JOYSTICK idx: %d, name: %s AXIS %d VALUE=%d",
+             0,Joy->getName(),loop,Joy->input.axes[loop]);
+
+     }
+
+     }
 
 
     MidiBuffer midiBuffer ( midiDriver ? midiDriver->getBuffer() : MidiBuffer(0));

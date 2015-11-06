@@ -23,6 +23,7 @@ public:
     inline const char* getName(){return name;}
     inline  int getNumButtons(){return numButtons;}
     inline  int getNumHats(){return numHats;}
+    inline  int getNumAxis(){return numAxes;}
 private:
     bool init(int index);
     int index;

@@ -508,3 +508,8 @@ void PreferencesDialog::on_recordingCheckBox_clicked(){
 
 
 
+
+void PreferencesDialog::on_ButtonJoyCC_clicked()
+{
+    //should open a dialog with a list of available Cc to choose
+}

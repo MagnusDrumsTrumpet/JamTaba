@@ -634,13 +634,19 @@ void MainController::doAudioProcess(const Audio::SamplesBuffer &in, Audio::Sampl
        {
          if(Joy->input.buttons[loop]==1) // 1== fired
          {
+             switch(loop)
+             {
+             case 0:getInputTrack(0)->setMuteStatus(false);break;
+             case 1:getInputTrack(0)->setMuteStatus(true);break;
+
+             default:break;
+             }
+
           Joy->input.buttons[loop]=0;
           qDebug("JOYSTICK idx: %d, name: %s BTN %d PRESSED",0,Joy->getName(),loop);
+          //getInputTrack(0)->setMuteStatus(true);
 
-          //getInputTrack(0)->setGain(1.0);
-          if(!getInputTrack(0)->isMuted())
-          getInputTrack(0)->setMuteStatus(true);else
-              getInputTrack(0)->setMuteStatus(false);
+
          }
         }
     }

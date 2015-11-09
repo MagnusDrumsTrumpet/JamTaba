@@ -25,7 +25,8 @@ HEADERS += \
     ../src/audio/vst/vsthost.h \
     ../src/geo/WebIpToLocationResolver.h \
     ../src/StandAloneMainController.h \
-    ../src/gui/MainWindowStandalone.h
+    ../src/gui/MainWindowStandalone.h \
+    ../src/Libs/SingleApplication/singleapplication.h \
 
 SOURCES += \
     ../src/main.cpp \
@@ -49,19 +50,23 @@ SOURCES += \
     ../src/geo/WebIpToLocationResolver.cpp \
     ../src/StandAloneMainController.cpp \
     ../src/gui/MainWindowStandalone.cpp \
-    ../../RtMidi/RtMidi.cpp
+#    ../../RtMidi/RtMidi.cpp
+    ../src/Libs/SingleApplication/singleapplication.cpp \
+
 
 INCLUDEPATH += $$PWD/../libs/includes/portaudio        \
                $$PWD/../libs/includes/rtmidi           \
                $$PWD/../libs/includes/ogg              \
                $$PWD/../libs/includes/vorbis           \
                $$PWD/../libs/includes/minimp3          \
+#               $$PWD/../src/Libs                       \
 
 DEPENDPATH +=  $$PWD/../libs/includes/portaudio        \
                $$PWD/../libs/includes/rtmidi           \
                $$PWD/../libs/includes/ogg              \
                $$PWD/../libs/includes/vorbis           \
                $$PWD/../libs/includes/minimp3          \
+#               $$PWD/../src/Libs                       \
 
 win32{
 

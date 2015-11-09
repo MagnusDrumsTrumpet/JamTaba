@@ -481,6 +481,9 @@ Audio::LocalInputAudioNode* MainController::getInputTrack(int localInputIndex){
 void MainController::setInputTrackToMono(int localChannelIndex, int inputIndexInAudioDevice){
     Audio::LocalInputAudioNode* inputTrack = getInputTrack(localChannelIndex);
     if(inputTrack){
+        if( !inputIndexIsValid(inputIndexInAudioDevice) ){
+            inputIndexInAudioDevice = audioDriver->getSelectedInputs().getFirstChannel();//use the first available channel
+        }
         inputTrack->setAudioInputSelection(inputIndexInAudioDevice, 1);//mono
         //emit inputSelectionChanged(localChannelIndex);
         if(mainWindow){
@@ -493,11 +496,21 @@ void MainController::setInputTrackToMono(int localChannelIndex, int inputIndexIn
         }
     }
 }
+
+bool MainController::inputIndexIsValid(int inputIndex){
+    Audio::ChannelRange globalInputsRange = audioDriver->getSelectedInputs();
+    return inputIndex >= globalInputsRange.getFirstChannel() && inputIndex <= globalInputsRange.getLastChannel();
+}
+
 void MainController::setInputTrackToStereo(int localChannelIndex, int firstInputIndex){
     Audio::LocalInputAudioNode* inputTrack = getInputTrack(localChannelIndex);
     if(inputTrack){
+
+        if( !inputIndexIsValid(firstInputIndex) ){
+            firstInputIndex = audioDriver->getSelectedInputs().getFirstChannel();//use the first available channel
+        }
         inputTrack->setAudioInputSelection(firstInputIndex, 2);//stereo
-        //emit inputSelectionChanged(localChannelIndex);
+
         if(mainWindow){
             mainWindow->refreshTrackInputSelection(localChannelIndex);
         }
@@ -890,6 +903,10 @@ void MainController::tryConnectInNinjamServer(Login::RoomInfo ninjamRoom, QStrin
 }
 
 
+void MainController::useNullAudioDriver(){
+    qCWarning(jtCore) << "Audio driver can't be used, using NullAudioDriver!";
+    audioDriver.reset(new Audio::NullAudioDriver());
+}
 
 void MainController::start(){
 
@@ -922,8 +939,7 @@ void MainController::start(){
 
         if(audioDriver ){
             if(!audioDriver->canBeStarted()){
-                qCWarning(jtCore) << "Audio driver can't be used, using NullAudioDriver!";
-                audioDriver.reset(new Audio::NullAudioDriver());
+                useNullAudioDriver();
             }
             audioDriver->start();
         }

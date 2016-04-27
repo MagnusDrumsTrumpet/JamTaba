@@ -280,7 +280,7 @@
     <name>JamRoomViewPanel</name>
     <message>
         <source>enter</source>
-        <translation>eintreten</translation>
+        <translation>enter</translation>
     </message>
     <message>
         <source>listen</source>
@@ -512,7 +512,7 @@
     </message>
     <message>
         <source>Your Controls</source>
-        <translation>seine Kontrollen</translation>
+        <translation>dein kontrollfeld</translation>
     </message>
     <message>
         <source>user name here</source>
@@ -942,7 +942,7 @@
     </message>
     <message>
         <source>enter</source>
-        <translation>betreten</translation>
+        <translation>enter</translation>
     </message>
     <message>
         <source>That panel shows the musicians actually in that room</source>

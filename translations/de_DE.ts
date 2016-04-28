@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>M</source>
-        <translation>M</translation>
+        <translation>M1</translation>
     </message>
     <message>
         <source>S</source>

@@ -942,7 +942,7 @@
     </message>
     <message>
         <source>enter</source>
-        <translation>enter</translation>
+        <translation>enter here</translation>
     </message>
     <message>
         <source>That panel shows the musicians actually in that room</source>
